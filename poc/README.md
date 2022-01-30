@@ -23,3 +23,8 @@
 ## ModuleFederationPlugin - Remote + Host Flow
 
 ![RemoteHost](_img/remote_host.png "RemoteHost")
+
+## Development Process
+
+![Dev Process](_img/development_process.png "Dev Process")
+![Dev Process2](_img/development_process_2.png "Dev Process2")

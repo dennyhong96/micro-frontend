@@ -71,9 +71,9 @@ module.exports = (env) => {
       // performance: false,
 
       // Separate runtime code into it's own chunk
-      runtimeChunk: {
-        name: "runtime",
-      },
+      // runtimeChunk: {
+      //   name: "runtime",
+      // },
     },
 
     resolve: {
@@ -85,10 +85,11 @@ module.exports = (env) => {
 
     plugins: [
       new ModuleFederationPlugin({
-        name: "container",
-        remotes: {
-          products: "products@http://localhost:8081/remoteEntry.js",
-          cart: "cart@http://localhost:8082/remoteEntry.js",
+        name: "cart",
+        filename: "remoteEntry.js",
+        exposes: {
+          // name alisas -> module file
+          "./CartShow": "@/index",
         },
       }),
 
