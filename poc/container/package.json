@@ -52,7 +52,6 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@faker-js/faker": "^6.0.0-alpha.5",
     "core-js": "^3.18.1"
   }
 }

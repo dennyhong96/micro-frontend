@@ -42,16 +42,16 @@ module.exports = {
 
   optimization: {
     // Code splitting
-    splitChunks: {
-      chunks: "all", // Split both static and async dynamic imports
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-          filename: "vendors.[contenthash].js",
-        },
-      },
-    },
+    // splitChunks: {
+    //   chunks: "all", // Split both static and async dynamic imports
+    //   cacheGroups: {
+    //     vendors: {
+    //       test: /[\\/]node_modules[\\/]/,
+    //       priority: -10,
+    //       filename: "vendors.[contenthash].js",
+    //     },
+    //   },
+    // },
 
     minimizer: [
       `...`, // extend existing minimizers (i.e. `terser-webpack-plugin`)

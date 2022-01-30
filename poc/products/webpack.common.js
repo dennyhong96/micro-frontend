@@ -3,6 +3,7 @@ const path = require("path");
 const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
 
 const devConfig = require("./webpack.dev.js");
 const prodConfig = require("./webpack.prod.js");
@@ -70,9 +71,9 @@ module.exports = (env) => {
       // performance: false,
 
       // Separate runtime code into it's own chunk
-      runtimeChunk: {
-        name: "runtime",
-      },
+      // runtimeChunk: {
+      //   name: "runtime",
+      // },
     },
 
     resolve: {
@@ -83,6 +84,15 @@ module.exports = (env) => {
     },
 
     plugins: [
+      new ModuleFederationPlugin({
+        name: "products",
+        filename: "remoteEntry.js",
+        exposes: {
+          // name alisas -> module file
+          "./ProductsIndex": "@/index",
+        },
+      }),
+
       new HtmlWebpackPlugin({
         template: "./src/index.html",
       }),

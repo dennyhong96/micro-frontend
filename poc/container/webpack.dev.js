@@ -14,7 +14,7 @@ module.exports = {
     static: "./dist",
     open: true,
     hot: true,
-    port: 8081,
+    port: 8080,
   },
 
   module: {

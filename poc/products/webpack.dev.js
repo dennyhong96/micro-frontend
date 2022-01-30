@@ -15,6 +15,9 @@ module.exports = {
     open: true,
     hot: true,
     port: 8081,
+    headers: {
+      "Access-Control-Allow-Origin": "http://localhost:8080",
+    },
   },
 
   module: {
@@ -46,19 +49,19 @@ module.exports = {
     ],
   },
 
-  optimization: {
-    // Code splitting
-    splitChunks: {
-      chunks: "all", // Split both static and async dynamic imports
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-          filename: "vendors.js",
-        },
-      },
-    },
-  },
+  // optimization: {
+  //   // Code splitting
+  //   splitChunks: {
+  //     chunks: "all", // Split both static and async dynamic imports
+  //     cacheGroups: {
+  //       vendors: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         priority: -10,
+  //         filename: "vendors.js",
+  //       },
+  //     },
+  //   },
+  // },
 
   plugins: [new HotModuleReplacementPlugin()],
 };

@@ -3,6 +3,7 @@ const path = require("path");
 const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
 
 const devConfig = require("./webpack.dev.js");
 const prodConfig = require("./webpack.prod.js");
@@ -83,6 +84,13 @@ module.exports = (env) => {
     },
 
     plugins: [
+      new ModuleFederationPlugin({
+        name: "container",
+        remotes: {
+          products: "products@http://localhost:8081/remoteEntry.js",
+        },
+      }),
+
       new HtmlWebpackPlugin({
         template: "./src/index.html",
       }),
